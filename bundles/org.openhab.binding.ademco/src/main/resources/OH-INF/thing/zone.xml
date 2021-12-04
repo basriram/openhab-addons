@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="ademco"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<thing-type id="zone" listed="false">
+		<supported-bridge-type-refs>
+			<bridge-type-ref id="partition"/>
+		</supported-bridge-type-refs>
+
+		<label>Ademco Alarm Zone</label>
+		<description>Represents a physical device such as a door, window, or motion sensor.</description>
+
+		<channels>
+			<channel id="zoneStatus" typeId="zone_status">
+				<label>Zone Status</label>
+				<description>Zone Status (Open/Closed)</description>
+			</channel>
+			<channel id="zoneBypass" typeId="bypass_mode">
+				<label>Zone Bypass Mode</label>
+				<description>Zone Bypass Mode (OFF=Armed, ON=Bypassed)</description>
+			</channel>
+			<channel id="zoneAlarm" typeId="status">
+				<label>Zone In Alarm</label>
+				<description>Zone In Alarm</description>
+			</channel>
+			<channel id="zoneCheck" typeId="status">
+				<label>Check Zone</label>
+				<description>Check zone for issues</description>
+			</channel>
+			<channel id="zoneLowBattery" typeId="status">
+				<label>Zone Low Battery</label>
+				<description>Zone is Low on Battery please replace soon.</description>
+			</channel>
+			<channel id="zoneFault" typeId="status">
+				<label>Zone Fault</label>
+				<description>Zone Fault</description>
+			</channel>
+			<channel id="zoneLastUpdated" typeId="datetime">
+				<label>Zone Last Update Time</label>
+				<description>Indicates when is the last time this zone gets updated.</description>
+			</channel>
+		</channels>
+
+		<config-description>
+			<parameter name="zoneNumber" type="integer" required="true" min="1" max="64">
+				<label>Zone Number</label>
+				<description>The Zone Number (1-64).</description>
+			</parameter>
+		</config-description>
+	</thing-type>
+
+</thing:thing-descriptions>

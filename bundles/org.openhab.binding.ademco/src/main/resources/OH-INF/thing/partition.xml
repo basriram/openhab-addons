@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="ademco"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+
+	<bridge-type id="partition" listed="false">
+		<supported-bridge-type-refs>
+			<bridge-type-ref id="envisalink"/>
+		</supported-bridge-type-refs>
+
+		<label>Ademco Alarm Partition</label>
+		<description>Represents a controllable area within a Ademco Alarm System.</description>
+
+		<channels>
+			<channel id="partitionStatus" typeId="partition_status">
+				<label>Partition Status</label>
+				<description>Partition Status</description>
+			</channel>
+			<channel id="partitionMessage" typeId="message">
+				<label>Message</label>
+				<description>Message received from the panel.</description>
+			</channel>
+			<channel id="IconAlarm" typeId="status">
+				<label>Partition In Alarm</label>
+				<description>Partition In Alarm</description>
+			</channel>
+			<channel id="IconAlarmInMemory" typeId="status">
+				<label>Alarm In Memory</label>
+				<description>Alarm In Memory</description>
+			</channel>
+			<channel id="IconArmedAway" typeId="button">
+				<label>Partition In ArmedAway</label>
+				<description>Partition In ArmedAway</description>
+			</channel>
+			<channel id="IconACPresent" typeId="status">
+				<label>AC Present</label>
+				<description>Using AC</description>
+			</channel>
+			<channel id="IconBypass" typeId="status">
+				<label>Partition In Bypass</label>
+				<description>Partition In Bypass</description>
+			</channel>
+			<channel id="IconChime" typeId="button">
+				<label>Partition Chime Mode</label>
+				<description>Partition Chime Mode</description>
+			</channel>
+			<channel id="IconArmedInstant" typeId="button">
+				<label>Armed Instant</label>
+				<description>Partition In Alarm Instant Mode</description>
+			</channel>
+			<channel id="IconFireAlarm" typeId="status">
+				<label>Partition Fire Alarm set.</label>
+				<description>Partition In FireAlarm.</description>
+			</channel>
+			<channel id="IconTrouble" typeId="status">
+				<label>Partition is in Trouble</label>
+				<description>Partition is in Trouble, check Message.</description>
+			</channel>
+			<channel id="IconReady" typeId="status">
+				<label>Partition is Ready</label>
+				<description>Partition Ready.</description>
+			</channel>
+			<channel id="IconFire" typeId="status">
+				<label>Partition In Fire</label>
+				<description>Partition In Fire</description>
+			</channel>
+			<channel id="IconLowBattery" typeId="status">
+				<label>Partition Low in Battery</label>
+				<description>Partition Low in Battery</description>
+			</channel>
+			<channel id="IconArmedStay" typeId="button">
+				<label>Partition In Arm Stay</label>
+				<description>Partition In Arm Stay</description>
+			</channel>
+			<channel id="ArmMode" typeId="arm_mode">
+				<label>Arm partition</label>
+				<description>Arm partition to AWAY, STAY, INSTANT or OFF</description>
+			</channel>
+
+		</channels>
+
+		<config-description>
+			<parameter name="partitionNumber" type="integer" required="true" min="1" max="8">
+				<label>Partition Number</label>
+				<description>The Partition Number (1-8).</description>
+				<default>1</default>
+			</parameter>
+			<parameter name="userCode" type="text" required="true">
+				<context>password</context>
+				<label>UserCode</label>
+				<description>Code to arm and disarm</description>
+			</parameter>
+		</config-description>
+	</bridge-type>
+
+</thing:thing-descriptions>

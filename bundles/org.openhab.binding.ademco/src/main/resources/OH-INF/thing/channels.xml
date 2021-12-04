@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="ademco"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:thing="https://openhab.org/schemas/thing-description/v1.0.0"
+	xsi:schemaLocation="https://openhab.org/schemas/thing-description/v1.0.0 https://openhab.org/schemas/thing-description-1.0.0.xsd">
+	<!-- bridge -->
+
+	<!-- partition -->
+	<channel-type id="arm_mode">
+		<item-type>Number</item-type>
+		<label>Arm Mode</label>
+		<description>Arm Mode</description>
+		<state pattern="%d">
+			<options>
+				<option value="1">Disarm</option>
+				<option value="2">Away</option>
+				<option value="3">Stay</option>
+				<option value="7">Instant</option>
+			</options>
+		</state>
+	</channel-type>
+	<channel-type id="partition_status">
+		<item-type>Number</item-type>
+		<label>Partition Status</label>
+		<description>This describe the status of the current partition.</description>
+		<state pattern="%d" readOnly="true">
+			<options>
+				<option value="1">READY</option>
+				<option value="2">READYBYPASS</option>
+				<option value="3">NOTREADY</option>
+				<option value="4">ARMEDSTAY</option>
+				<option value="5">ARMEDAWAY</option>
+				<option value="6">ARMEDINSTANT</option>
+				<option value="7">EXITDELAY</option>
+				<option value="8">ALARM</option>
+				<option value="9">ALARMED</option>
+				<option value="10">ARMEDMAX</option>
+			</options>
+		</state>
+	</channel-type>
+
+	<!-- zone -->
+	<channel-type id="zone_status">
+		<item-type>Contact</item-type>
+		<label>Zone Status</label>
+		<description>Zone Status (Open/Closed)</description>
+		<state readOnly="true"></state>
+	</channel-type>
+
+	<channel-type id="bypass_mode">
+		<item-type>Switch</item-type>
+		<label>Bypass Mode</label>
+		<description>Bypass Mode (OFF=Armed, ON=Bypassed)</description>
+	</channel-type>
+
+	<!-- common -->
+	<channel-type id="message">
+		<item-type>String</item-type>
+		<label>Message</label>
+		<description>Message Received</description>
+		<state pattern="%s" readOnly="true"></state>
+	</channel-type>
+	<channel-type id="status">
+		<item-type>Switch</item-type>
+		<label>Status</label>
+		<description>Status</description>
+		<state readOnly="true"></state>
+	</channel-type>
+	<channel-type id="button">
+		<item-type>Switch</item-type>
+		<label>Button</label>
+		<description>Button</description>
+		<state readOnly="false"></state>
+	</channel-type>
+	<channel-type id="datetime">
+		<item-type>DateTime</item-type>
+		<label>DateTime</label>
+		<description>DateTime</description>
+		<state readOnly="true"></state>
+	</channel-type>
+
+
+</thing:thing-descriptions>
